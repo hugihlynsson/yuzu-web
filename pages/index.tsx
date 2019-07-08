@@ -14,6 +14,25 @@ const Index: NextPage<{}> = () => (
         href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
         rel="stylesheet"
       />
+      <meta property="og:url" content="https://yuzu.is" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Yuzu Oriental Burgers" />
+      <meta property="og:image" content="https://yuzu.is/static/share.jpg" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-143527780-1"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-143527780-1');
+          `,
+        }}
+      />
     </Head>
 
     <h1>
