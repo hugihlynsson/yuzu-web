@@ -1,5 +1,5 @@
-import { NextComponentType } from 'next'
+import { NextPage } from 'next'
 
-const Index: NextComponentType<{}> = () => <div>Hello Yuzu</div>
+const Index: NextPage<{}> = () => <div>Hello Yuzu</div>
 
 export default Index
