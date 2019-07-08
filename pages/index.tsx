@@ -56,9 +56,13 @@ const Index: NextPage<{}> = () => (
         box-sizing: border-box;
       }
 
+      :global(html) {
+        height: 100%;
+      }
+
       :global(body) {
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         margin: 0;
 
         display: flex;
