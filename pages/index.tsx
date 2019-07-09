@@ -10,6 +10,7 @@ const Index: NextPage<{}> = () => (
   <div>
     <Head>
       <title>Yuzu Oriental Burgers</title>
+      <link rel="icon" href="/static/icon.png"></link>
       <link
         href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
         rel="stylesheet"
