@@ -11,10 +11,6 @@ const Index: NextPage<{}> = () => (
     <Head>
       <title>Yuzu Oriental Burgers</title>
       <link rel="icon" href="/static/icon.png"></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
-        rel="stylesheet"
-      />
       <meta property="og:url" content="https://yuzu.is" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Yuzu Oriental Burgers" />
@@ -49,6 +45,11 @@ const Index: NextPage<{}> = () => (
     </a>
 
     <p className="🔜">Opnum fljótt</p>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
+      rel="stylesheet"
+    />
 
     <style jsx>{`
       :global(*),
