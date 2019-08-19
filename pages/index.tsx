@@ -19,6 +19,7 @@ const Index: NextPage<{}> = () => (
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-143527780-1"
       />
+      <meta name="google-site-verification" content="WzEGIhEyyeghGzMuX_-qjuwRQh9HoC8qmAbCFZhTGv4" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
