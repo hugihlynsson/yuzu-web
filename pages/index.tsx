@@ -1,25 +1,53 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Prismic from 'prismic-javascript'
 
 const colors = {
   lemon: '#F8C000',
   ocean: '#2d3a8a',
 }
 
-const Index: NextPage<{}> = () => (
+interface HomeData {
+  phone: number
+  instagram_handle: string
+  header_image: { Narrow: {}; Medium: {}; Share: {} }
+  city: string
+  address: string
+  country: string
+  text: string
+  content_image_top_left: {}
+  content_image_right: {}
+  content_image_bottom: {}
+  footer_text: string
+  open_from: string
+  open_to: string
+  title: string
+  description: string
+}
+
+interface Props {
+  homeData: HomeData
+}
+
+const Index: NextPage<Props> = ({ homeData }) => (
   <div>
     <Head>
-      <title>Yuzu Oriental Burgers</title>
+      <title>{homeData.title}</title>
       <link rel="icon" href="/icon.png"></link>
+      <meta name="description" content={homeData.description} />
       <meta property="og:url" content="https://yuzu.is" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Yuzu Oriental Burgers" />
+      <meta property="og:title" content={homeData.title} />
+      <meta property="og:description" content={homeData.description} />
       <meta property="og:image" content="https://yuzu.is/share.jpg" />
       <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-143527780-1"
       />
-      <meta name="google-site-verification" content="WzEGIhEyyeghGzMuX_-qjuwRQh9HoC8qmAbCFZhTGv4" />
+      <meta
+        name="google-site-verification"
+        content="WzEGIhEyyeghGzMuX_-qjuwRQh9HoC8qmAbCFZhTGv4"
+      />
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -72,8 +100,7 @@ const Index: NextPage<{}> = () => (
         align-items: center;
         justify-content: center;
 
-        background-image: url('/japanese.png'),
-          url('/background.jpg');
+        background-image: url('/japanese.png'), url('/background.jpg');
         background-size: 167px 23px, cover;
         background-position: bottom left, center center;
         background-repeat: repeat-x, no-repeat;
@@ -134,5 +161,11 @@ const Index: NextPage<{}> = () => (
     `}</style>
   </div>
 )
+
+Index.getInitialProps = async () => {
+  const API = await Prismic.getApi('https://yuzu.cdn.prismic.io/api/v2')
+  const home = await API.getSingle('home')
+  return { homeData: home.data as HomeData }
+}
 
 export default Index
