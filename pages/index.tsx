@@ -10,11 +10,11 @@ const Index: NextPage<{}> = () => (
   <div>
     <Head>
       <title>Yuzu Oriental Burgers</title>
-      <link rel="icon" href="/static/icon.png"></link>
+      <link rel="icon" href="/icon.png"></link>
       <meta property="og:url" content="https://yuzu.is" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Yuzu Oriental Burgers" />
-      <meta property="og:image" content="https://yuzu.is/static/share.jpg" />
+      <meta property="og:image" content="https://yuzu.is/share.jpg" />
       <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-143527780-1"
@@ -36,7 +36,7 @@ const Index: NextPage<{}> = () => (
     <h1>
       <img
         className="🖼"
-        src="/static/logo.png"
+        src="/logo.png"
         alt="Yuzu – Hverfisgata 44, Reykjavík, Iceland"
       />
     </h1>
@@ -72,8 +72,8 @@ const Index: NextPage<{}> = () => (
         align-items: center;
         justify-content: center;
 
-        background-image: url('/static/japanese.png'),
-          url('/static/background.jpg');
+        background-image: url('/japanese.png'),
+          url('/background.jpg');
         background-size: 167px 23px, cover;
         background-position: bottom left, center center;
         background-repeat: repeat-x, no-repeat;
