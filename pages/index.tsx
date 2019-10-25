@@ -69,8 +69,11 @@ const Index: NextPage<Props> = ({ homeData }) => (
       />
     </h1>
 
-    <a className="📤" href="https://www.instagram.com/yuzuburger/">
-      @yuzuburger
+    <a
+      className="📤"
+      href={`https://www.instagram.com/${homeData.instagram_handle}/`}
+    >
+      {homeData.instagram_handle}
     </a>
 
     <p className="🔜">Opnum fljótt</p>
