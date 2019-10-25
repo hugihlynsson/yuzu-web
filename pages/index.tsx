@@ -134,17 +134,17 @@ const Index: NextPage<Props> = ({ homeData }) => (
     `}</style>
 
     <style jsx global>{`
-      :global(*),
-      :global(*::after),
-      :global(*::before) {
+      *,
+      *::after,
+      *::before {
         box-sizing: border-box;
       }
 
-      :global(html) {
+      html {
         height: 100%;
       }
 
-      :global(body) {
+      body {
         width: 100vw;
         height: 100%;
         margin: 0;
