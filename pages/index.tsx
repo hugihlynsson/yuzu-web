@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Prismic from 'prismic-javascript'
 
 const colors = {
-  lemon: '#F8C000',
+  lemon: '#f8c000',
   ocean: '#2d3a8a',
 }
 
@@ -64,7 +64,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
     <h1>
       <img
         className="🖼"
-        src="/logo.png"
+        src="/logo.svg"
         alt="Yuzu – Hverfisgata 44, Reykjavík, Iceland"
       />
     </h1>
@@ -88,7 +88,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         margin: 0;
         border: 4px solid ${colors.lemon};
         margin: 10px;
-        padding-bottom: 30px;
         background-color: white;
         max-width: 500px;
       }
