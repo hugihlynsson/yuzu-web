@@ -137,6 +137,54 @@ const Index: NextPage<Props> = ({ homeData }) => (
       <p className="about-text">{homeData.description}</p>
     </section>
 
+    <section className="menu">
+      <img className="menu-image" src="/menu.svg" alt="Matseðill" />
+    </section>
+
+    <section className="gallery">
+      <img
+        className="galleri-kanjiYuzu"
+        src="/kanji-yuzu.svg"
+        alt="Yuzu á Japönsku"
+      />
+      <div className="gallery-images">
+        <img
+          className="galleri-topLeft"
+          src={homeData.content_image_top_left.url}
+          alt={homeData.content_image_top_left.alt}
+        />
+        <img
+          className="galleri-right"
+          src={homeData.content_image_right.url}
+          alt={homeData.content_image_right.alt}
+        />
+        <img
+          className="galleri-bottom"
+          src={homeData.content_image_bottom.url}
+          alt={homeData.content_image_bottom.alt}
+        />
+      </div>
+      <img
+        className="galleri-kanjiBurgers"
+        src="/kanji-burgers.svg"
+        alt="Borgarar á Japönsku"
+      />
+    </section>
+
+    <footer>
+      <p className="footer-text">{homeData.footer_text}</p>
+      <div className="footer-info">
+        <p className="footer-info-item">
+          Opið: {homeData.open_from}–{homeData.open_to}
+        </p>
+
+        <a className="footer-info-item" href={`tel:${homeData.phone}`}>
+          s. {homeData.phone.toString().substring(0, 3)}{' '}
+          {homeData.phone.toString().substring(3, 7)}
+        </a>
+      </div>
+    </footer>
+
     <style jsx>{`
       .hero {
         display: flex;
@@ -211,6 +259,90 @@ const Index: NextPage<Props> = ({ homeData }) => (
         line-height: 1.3;
       }
 
+      .menu {
+        padding: 25px;
+        margin: calc(20% + 60px) 0;
+        background-color: ${colors.lemon};
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .menu-image {
+        margin: -20% 0;
+        width: 100%;
+        height: auto;
+        max-width: 850px;
+      }
+
+      .gallery {
+        padding: 25px 25px 70px;
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .galleri-kanjiYuzu {
+        position: absolute;
+        right: 50px;
+        top: 0;
+      }
+      .gallery-images {
+        display: flex;
+        flex-direction: column;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+      .galleri-topLeft {
+        width: 60%;
+        max-width: 328px;
+        height: auto;
+      }
+      .galleri-right {
+        width: 50%;
+        max-width: 243px;
+        height: auto;
+        align-self: flex-end;
+        margin-top: -20%;
+      }
+      .galleri-bottom {
+        width: 40%;
+        width: 221px;
+        height: auto;
+        margin-top: -30%;
+        align-self: center;
+        margin-right: 20%;
+      }
+      .galleri-kanjiBurgers {
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+      }
+
+      footer {
+        padding-bottom: 45px;
+      }
+      .footer-text {
+        color: ${colors.ocean};
+        text-align: center;
+        font-family: 'Shinra';
+        font-size: 40px;
+        margin-bottom: 0.8em;
+        margin-top: 2em;
+        text-transform: uppercase;
+      }
+      .footer-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-info-item {
+        color: ${colors.ocean};
+        font-size: 14px;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 6px 0;
+      }
+
       @media (min-width: 600px) {
         .top {
           margin: 20px 30px;
@@ -221,6 +353,18 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .about-text {
           font-size: 33px;
           margin: 0;
+        }
+        .footer-text {
+          font-size: 50px;
+        }
+        .footer-info {
+          flex-direction: row;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .footer-info-item {
+          flex-basis: 50%;
+          text-align: center;
         }
       }
 
@@ -236,6 +380,25 @@ const Index: NextPage<Props> = ({ homeData }) => (
         }
         .about-text {
           flex-basis: 50%;
+        }
+        .galleri-kanjiYuzu {
+          left: 10px;
+          top: 30%;
+          right: auto;
+        }
+        .galleri-kanjiBurgers {
+          bottom: 30%;
+          right: 10px;
+          left: auto;
+        }
+        footer {
+          padding-bottom: 95px;
+        }
+        .footer-text {
+          font-size: 83px;
+        }
+        .footer-info-item {
+          font-size: 19px;
         }
       }
     `}</style>
