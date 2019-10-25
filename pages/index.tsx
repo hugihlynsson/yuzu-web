@@ -84,35 +84,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
     />
 
     <style jsx>{`
-      :global(*),
-      :global(*::after),
-      :global(*::before) {
-        box-sizing: border-box;
-      }
-
-      :global(html) {
-        height: 100%;
-      }
-
-      :global(body) {
-        width: 100vw;
-        height: 100%;
-        margin: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background-image: url('/japanese.png'), url('/background.jpg');
-        background-size: 167px 23px, cover;
-        background-position: bottom left, center center;
-        background-repeat: repeat-x, no-repeat;
-
-        font-family: 'Raleway', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
       h1 {
         margin: 0;
         border: 4px solid ${colors.lemon};
@@ -160,6 +131,37 @@ const Index: NextPage<Props> = ({ homeData }) => (
           top: 20px;
           left: 30px;
         }
+      }
+    `}</style>
+
+    <style jsx global>{`
+      :global(*),
+      :global(*::after),
+      :global(*::before) {
+        box-sizing: border-box;
+      }
+
+      :global(html) {
+        height: 100%;
+      }
+
+      :global(body) {
+        width: 100vw;
+        height: 100%;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-image: url('/japanese.png'), url('/background.jpg');
+        background-size: 167px 23px, cover;
+        background-position: bottom left, center center;
+        background-repeat: repeat-x, no-repeat;
+
+        font-family: 'Raleway', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
     `}</style>
   </div>
