@@ -124,7 +124,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
       </picture>
 
       <header>
-        <h1>
+        <h1 className="header-title">
           <img
             className="logo"
             src="/logo.svg"
@@ -201,6 +201,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         height: 90%;
         padding-bottom: 40px;
         position: relative;
+        min-height: 360px;
       }
 
       .hero-image {
@@ -238,11 +239,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
         justify-content: center;
       }
 
-      h1 {
+      .header-title {
         border: 4px solid ${colors.lemon};
         margin: 10px;
         background-color: white;
         max-width: 500px;
+        flex-grow: 1;
       }
 
       .logo {
