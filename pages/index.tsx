@@ -121,7 +121,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         width="216"
         height="324"
       />
-      <p className="about-text">{homeData.description}</p>
+      <p className="about-text">{homeData.text}</p>
     </section>
 
     <section className="menu">
