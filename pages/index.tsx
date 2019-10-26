@@ -108,8 +108,16 @@ const Index: NextPage<Props> = ({ homeData }) => (
         </a>
       </div>
 
-      <picture className="hero-image">
+      <picture>
+        <source
+          className="hero-image"
+          media="(max-aspect-ratio: 1/1)"
+          srcSet={homeData.header_image.Narrow.url}
+        />
         <img
+          className="hero-image"
+          sizes="100vw"
+          srcSet={`${homeData.header_image.url} ${homeData.header_image.dimensions.width}w, ${homeData.header_image.Medium.url} ${homeData.header_image.Medium.dimensions.width}w`}
           src={homeData.header_image.url}
           alt={homeData.header_image.alt || ''}
         />
@@ -195,7 +203,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         position: relative;
       }
 
-      .hero-image img {
+      .hero-image {
         z-index: -1;
         position: absolute;
         top: 0;
