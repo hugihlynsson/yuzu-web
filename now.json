@@ -3,6 +3,5 @@
   "scope": "hugihlynsson",
   "version": 2,
   "regions": ["lhr"],
-  "name": "yuzu",
-  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
+  "name": "yuzu"
 }
