@@ -7,48 +7,27 @@ const colors = {
   ocean: '#2d3a8a',
 }
 
+interface PrismicImage {
+  alt?: string
+  dimensions: { width: number; height: number }
+  url: string
+}
+
 interface HomeData {
   phone: number
   instagram_handle: string
-  header_image: {
-    alt?: string
-    dimensions: { width: number; height: number }
-    url: string
-    Narrow: {
-      alt?: string
-      dimensions: { width: number; height: number }
-      url: string
-    }
-    Medium: {
-      alt?: string
-      dimensions: { width: number; height: number }
-      url: string
-    }
-    Share: {
-      alt?: string
-      dimensions: { width: number; height: number }
-      url: string
-    }
+  header_image: PrismicImage & {
+    Narrow: PrismicImage
+    Medium: PrismicImage
+    Share: PrismicImage
   }
   city: string
   address: string
   country: string
   text: string
-  content_image_top_left: {
-    alt?: string
-    dimensions: { width: number; height: number }
-    url: string
-  }
-  content_image_right: {
-    alt?: string
-    dimensions: { width: number; height: number }
-    url: string
-  }
-  content_image_bottom: {
-    alt?: string
-    dimensions: { width: number; height: number }
-    url: string
-  }
+  content_image_top_left: PrismicImage
+  content_image_right: PrismicImage
+  content_image_bottom: PrismicImage
   footer_text: string
   open_from: string
   open_to: string
