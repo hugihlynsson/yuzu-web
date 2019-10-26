@@ -30,6 +30,12 @@ export default class CustomApp extends App {
 
         <Component {...pageProps} />
 
+        <script
+          async
+          defer
+          src="//static.cdn.prismic.io/prismic.js?repo=yuzu&new=true"
+        />
+
         <style jsx global>{`
           @font-face {
             font-family: 'Sackers Gothic';
