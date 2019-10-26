@@ -146,7 +146,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
     </section>
 
     <section className="menu">
-      <img className="menu-image" src="/menu.svg" alt="Matseðill" />
+      <img className="menu-image" src="/menu.png" alt="Matseðill" />
     </section>
 
     <section className="gallery">
