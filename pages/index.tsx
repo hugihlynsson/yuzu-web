@@ -251,7 +251,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
       .menu {
         padding: 25px;
-        margin: calc(20% + 60px) 0;
+        margin: 20% 0 calc(20% + 60px);
         background-color: ${colors.lemon};
         display: flex;
         flex-direction: column;
@@ -314,9 +314,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
         color: ${colors.ocean};
         text-align: center;
         font-family: 'Shinra';
-        font-size: 40px;
-        margin-bottom: 0.8em;
-        margin-top: 2em;
+        font-size: 50px;
+        margin: 2em 25px 0.8em;
         text-transform: uppercase;
       }
       .footer-info {
@@ -364,7 +363,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
           flex-direction: row;
           max-width: 900px;
           margin: 0 auto;
-          padding: 90px 0;
+          padding: 90px 0 50px;
         }
         .about-image {
           flex-basis: 50%;
