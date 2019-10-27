@@ -385,6 +385,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
           padding-bottom: 95px;
         }
         .footer-text {
+          margin-top: 1em;
           font-size: 83px;
         }
         .footer-info-item {
