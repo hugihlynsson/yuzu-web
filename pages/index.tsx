@@ -160,7 +160,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         </p>
 
         <a
-          className="footer-info-item footer-info-item--lowercase"
+          className="footer-info-item"
           href="https://www.google.com/maps/place/Yuzu/@64.146056,-21.9277311,17z/data=!3m1!4b1!4m5!3m4!1s0x48d67597741f36a3:0x598feecd0e39671a!8m2!3d64.146056!4d-21.9277311"
         >
           Hverfisgata 44
@@ -327,12 +327,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
       .footer-info-item {
         color: ${colors.ocean};
         font-size: 14px;
-        text-transform: uppercase;
+        text-transform: lowercase;
         text-decoration: none;
         margin: 6px 0;
-      }
-      .footer-info-item--lowercase {
-        text-transform: none;
       }
 
       @media (min-width: 600px) {
