@@ -294,7 +294,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
       .galleri-bottom {
         width: 40%;
-        width: 221px;
+        max-width: 221px;
         height: auto;
         margin-top: -30%;
         align-self: center;
