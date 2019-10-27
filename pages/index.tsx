@@ -57,25 +57,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
       <meta property="og:title" content={homeData.title} />
       <meta property="og:description" content={homeData.description} />
       <meta property="og:image" content={homeData.header_image.Share.url} />
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-143527780-1"
-      />
-      <meta
-        name="google-site-verification"
-        content="WzEGIhEyyeghGzMuX_-qjuwRQh9HoC8qmAbCFZhTGv4"
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-143527780-1');
-          `,
-        }}
-      />
     </Head>
 
     <div className="hero">
@@ -402,44 +383,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .footer-info-item {
           font-size: 19px;
         }
-      }
-    `}</style>
-
-    <style jsx global>{`
-      @font-face {
-        font-family: 'Sackers Gothic';
-        src: url('/fonts/Sackers-Gothic-Std-Heavy.woff2') format('woff2'),
-          url('/fonts/Sackers-Gothic-Std-Heavy.woff') format('woff');
-      }
-
-      @font-face {
-        font-family: 'Shinra';
-        src: url('/fonts/Shinra-Regular.woff2') format('woff2'),
-          url('/fonts/Shinra-Regular.woff') format('woff');
-      }
-
-      *,
-      *::after,
-      *::before {
-        box-sizing: border-box;
-      }
-
-      html {
-        height: 100%;
-      }
-
-      body {
-        width: 100vw;
-        height: 100%;
-        margin: 0;
-
-        font-family: 'Sackers Gothic', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      #__next {
-        height: 100%;
       }
     `}</style>
   </>
