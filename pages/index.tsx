@@ -19,15 +19,22 @@ interface HomeData {
   header_image: PrismicImage & {
     Narrow: PrismicImage
     Medium: PrismicImage
+    Small: PrismicImage
     Share: PrismicImage
   }
   city: string
   address: string
   country: string
   text: string
-  content_image_top_left: PrismicImage
-  content_image_right: PrismicImage
-  content_image_bottom: PrismicImage
+  content_image_top_left: PrismicImage & {
+    Small: PrismicImage
+  }
+  content_image_right: PrismicImage & {
+    Small: PrismicImage
+  }
+  content_image_bottom: PrismicImage & {
+    Small: PrismicImage
+  }
   footer_text: string
   open_from: string
   open_to: string
@@ -96,7 +103,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         <img
           className="hero-image"
           sizes="100vw"
-          srcSet={`${homeData.header_image.url} ${homeData.header_image.dimensions.width}w, ${homeData.header_image.Medium.url} ${homeData.header_image.Medium.dimensions.width}w`}
+          srcSet={`${homeData.header_image.url} ${homeData.header_image.dimensions.width}w, ${homeData.header_image.Medium.url} ${homeData.header_image.Medium.dimensions.width}w, ${homeData.header_image.Small.url} ${homeData.header_image.Small.dimensions.width}w`}
           src={homeData.header_image.url}
           alt={homeData.header_image.alt || ''}
         />
@@ -137,16 +144,22 @@ const Index: NextPage<Props> = ({ homeData }) => (
       <div className="gallery-images">
         <img
           className="galleri-topLeft"
+          sizes="328w"
+          srcSet={`${homeData.content_image_top_left.url} ${homeData.content_image_top_left.dimensions.width}w, ${homeData.content_image_top_left.Small.url} ${homeData.content_image_top_left.Small.dimensions.width}w`}
           src={homeData.content_image_top_left.url}
           alt={homeData.content_image_top_left.alt}
         />
         <img
           className="galleri-right"
+          sizes="243w"
+          srcSet={`${homeData.content_image_right.url} ${homeData.content_image_right.dimensions.width}w, ${homeData.content_image_right.Small.url} ${homeData.content_image_right.Small.dimensions.width}w`}
           src={homeData.content_image_right.url}
           alt={homeData.content_image_right.alt}
         />
         <img
           className="galleri-bottom"
+          sizes="221w"
+          srcSet={`${homeData.content_image_bottom.url} ${homeData.content_image_bottom.dimensions.width}w, ${homeData.content_image_bottom.Small.url} ${homeData.content_image_bottom.Small.dimensions.width}w`}
           src={homeData.content_image_bottom.url}
           alt={homeData.content_image_bottom.alt}
         />
