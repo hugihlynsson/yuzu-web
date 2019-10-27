@@ -159,6 +159,13 @@ const Index: NextPage<Props> = ({ homeData }) => (
           Opið: {homeData.open_from}–{homeData.open_to}
         </p>
 
+        <a
+          className="footer-info-item footer-info-item--lowercase"
+          href="https://www.google.com/maps/place/Yuzu/@64.146056,-21.9277311,17z/data=!3m1!4b1!4m5!3m4!1s0x48d67597741f36a3:0x598feecd0e39671a!8m2!3d64.146056!4d-21.9277311"
+        >
+          Hverfisgata 44
+        </a>
+
         <a className="footer-info-item" href={`tel:${homeData.phone}`}>
           s. {homeData.phone.toString().substring(0, 3)}{' '}
           {homeData.phone.toString().substring(3, 7)}
@@ -325,6 +332,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
         text-decoration: none;
         margin: 6px 0;
       }
+      .footer-info-item--lowercase {
+        text-transform: none;
+      }
 
       @media (min-width: 600px) {
         .top {
@@ -337,16 +347,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
           font-size: 33px;
           margin: 0;
         }
-        .footer-text {
-          font-size: 50px;
-        }
         .footer-info {
           flex-direction: row;
-          max-width: 500px;
+          width: 80%;
+          max-width: 700px;
           margin: 0 auto;
         }
         .footer-info-item {
-          flex-basis: 50%;
+          flex-basis: 33.33%;
           text-align: center;
         }
       }
