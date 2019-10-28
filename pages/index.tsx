@@ -317,8 +317,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         font-size: 50px;
         margin: 2em 0 0.8em;
         text-transform: uppercase;
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: subpixel-antialiased;
       }
       .footer-info {
         display: grid;
@@ -344,8 +342,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .about-text {
           font-size: 33px;
           margin: 0;
-          -webkit-font-smoothing: subpixel-antialiased;
-          -moz-osx-font-smoothing: subpixel-antialiased;
         }
         .footer-info {
           grid-template-columns: auto auto;
