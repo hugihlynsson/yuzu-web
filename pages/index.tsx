@@ -100,13 +100,13 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
     <section className="about">
       <img
-        className="about-image"
-        src="/glass.svg"
+        className="about-item about-image"
+        src="/about-illustration.svg"
         alt="Japönsk OK-hendi með drykk"
         width="216"
         height="324"
       />
-      <p className="about-text">{homeData.text}</p>
+      <p className="about-item about-text">{homeData.text}</p>
     </section>
 
     <section className="menu">
@@ -232,14 +232,17 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       .about {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        place-items: center;
         padding-top: 35px;
+        padding-left: 24px;
+        padding-right: 24px;
+        max-width: 900px;
+        margin: 0 auto 60px;
       }
 
       .about-text {
-        padding: 36px;
+        margin: 0;
         color: ${colors.ocean};
         font-family: 'Shinra';
         font-size: 28px;
@@ -249,7 +252,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
       .menu {
         padding: 25px;
-        margin: 20% 0 calc(20% + 60px);
+        margin: calc(20% + 60px) 0 calc(20% + 80px);
         background-color: ${colors.lemon};
         display: flex;
         flex-direction: column;
@@ -340,31 +343,21 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .about-text {
           font-size: 33px;
           margin: 0;
+          -webkit-font-smoothing: auto;
+          -moz-osx-font-smoothing: auto;
         }
         .footer-info {
-          flex-direction: row;
-          width: 80%;
+          grid-template-columns: auto auto;
           max-width: 700px;
           margin: 0 auto;
-        }
-        .footer-info-item {
-          flex-basis: 33.33%;
-          text-align: center;
         }
       }
 
       @media (min-width: 800px) {
         .about {
-          flex-direction: row;
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 90px 0 50px;
-        }
-        .about-image {
-          flex-basis: 50%;
-        }
-        .about-text {
-          flex-basis: 50%;
+          margin-top: 80px;
+          grid-gap: 32px;
+          grid-template-columns: 1fr 1fr;
         }
         .galleri-kanjiYuzu {
           left: 10px;
