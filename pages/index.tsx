@@ -14,6 +14,7 @@ interface PrismicImage {
 }
 
 interface HomeData {
+  open: string
   phone: number
   instagram_handle: string
   header_image: PrismicImage & {
@@ -36,8 +37,6 @@ interface HomeData {
     Small: PrismicImage
   }
   footer_text: string
-  open_from: string
-  open_to: string
   title: string
   description: string
 }
@@ -62,6 +61,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
     <div className="hero">
       <div className="top">
         <a
+          className="top-link"
           target="_blank"
           rel="noopener noreferrer"
           href={`https://www.instagram.com/${homeData.instagram_handle}/`}
@@ -69,10 +69,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
           @{homeData.instagram_handle}
         </a>
 
-        <a href={`tel:${homeData.phone}`}>
-          s. {homeData.phone.toString().substring(0, 3)}{' '}
-          {homeData.phone.toString().substring(3, 7)}
-        </a>
+        <p className="top-link top-link--rightAlign">{homeData.open}</p>
       </div>
 
       <picture>
@@ -155,20 +152,13 @@ const Index: NextPage<Props> = ({ homeData }) => (
     <footer>
       <p className="footer-text">{homeData.footer_text}</p>
       <div className="footer-info">
-        <p className="footer-info-item">
-          Opið: {homeData.open_from}–{homeData.open_to}
-        </p>
+        <p className="footer-info-item">{homeData.open}</p>
 
         <a
           className="footer-info-item"
           href="https://www.google.com/maps/place/Yuzu/@64.146056,-21.9277311,17z/data=!3m1!4b1!4m5!3m4!1s0x48d67597741f36a3:0x598feecd0e39671a!8m2!3d64.146056!4d-21.9277311"
         >
           Hverfisgata 44
-        </a>
-
-        <a className="footer-info-item" href={`tel:${homeData.phone}`}>
-          s. {homeData.phone.toString().substring(0, 3)}{' '}
-          {homeData.phone.toString().substring(3, 7)}
         </a>
       </div>
     </footer>
@@ -197,19 +187,27 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       .top {
-        display: flex;
+        display: grid;
+        justify-items: center;
+        grid-gap: 32px;
         flex-grow: 0;
         flex-shrink: 0;
         justify-content: space-between;
         padding: 12px;
       }
-      .top a {
+      .top-link {
+        grid-row: 1;
+        margin: 0;
         color: white;
-        font-size: 11px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: lowercase;
+        letter-spacing: 0.05em;
         text-decoration: none;
         text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+      }
+      .top-link--rightAlign {
+        text-align: right;
       }
 
       header {
