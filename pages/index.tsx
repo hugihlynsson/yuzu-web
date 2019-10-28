@@ -61,7 +61,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
     <div className="hero">
       <div className="top">
         <a
-          className="top-link"
+          className="top-item"
           target="_blank"
           rel="noopener noreferrer"
           href={`https://www.instagram.com/${homeData.instagram_handle}/`}
@@ -69,7 +69,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
           @{homeData.instagram_handle}
         </a>
 
-        <p className="top-link top-link--rightAlign">{homeData.open}</p>
+        <p className="top-item top-item--rightAlign">{homeData.open}</p>
       </div>
 
       <picture>
@@ -195,18 +195,17 @@ const Index: NextPage<Props> = ({ homeData }) => (
         justify-content: space-between;
         padding: 12px;
       }
-      .top-link {
+      .top-item {
         grid-row: 1;
         margin: 0;
         color: white;
         font-size: 14px;
-        line-height: 18px;
         text-transform: lowercase;
         letter-spacing: 0.05em;
         text-decoration: none;
         text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
       }
-      .top-link--rightAlign {
+      .top-item--rightAlign {
         text-align: right;
       }
 
@@ -339,8 +338,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .top {
           margin: 20px 30px;
         }
-        .top a {
-          font-size: 14px;
+        .top-item {
+          font-size: 16px;
         }
         .about-text {
           font-size: 33px;
