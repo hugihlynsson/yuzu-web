@@ -152,14 +152,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
     <footer>
       <p className="footer-text">{homeData.footer_text}</p>
       <div className="footer-info">
-        <p className="footer-info-item">{homeData.open}</p>
-
         <a
           className="footer-info-item"
           href="https://www.google.com/maps/place/Yuzu/@64.146056,-21.9277311,17z/data=!3m1!4b1!4m5!3m4!1s0x48d67597741f36a3:0x598feecd0e39671a!8m2!3d64.146056!4d-21.9277311"
         >
           Hverfisgata 44
         </a>
+
+        <p className="footer-info-item">{homeData.open}</p>
       </div>
     </footer>
 
@@ -309,28 +309,30 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       footer {
-        padding-bottom: 45px;
+        padding: 0 25px 45px;
       }
       .footer-text {
         color: ${colors.ocean};
         text-align: center;
         font-family: 'Shinra';
         font-size: 50px;
-        margin: 2em 25px 0.8em;
+        margin: 2em 0 0.8em;
         text-transform: uppercase;
+        -webkit-font-smoothing: auto;
+        -moz-osx-font-smoothing: auto;
       }
       .footer-info {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-gap: 12px;
+        place-items: center;
       }
       .footer-info-item {
         color: ${colors.ocean};
         font-size: 14px;
         text-transform: lowercase;
         text-decoration: none;
-        margin: 6px 0;
+        text-align: center;
+        margin: 0;
       }
 
       @media (min-width: 600px) {
