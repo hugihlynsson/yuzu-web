@@ -381,8 +381,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
   </>
 )
 
-Index.getInitialProps = async ({ req, res }) => {
-  if (res) {
+Index.getInitialProps = async ({ req, res, query }) => {
+  if (res && !('preview' in query)) {
     res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
   }
   const API = await Prismic.getApi('https://yuzu.cdn.prismic.io/api/v2', {
