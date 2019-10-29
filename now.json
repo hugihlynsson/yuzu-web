@@ -3,5 +3,5 @@
   "scope": "hugihlynsson",
   "version": 2,
   "regions": ["lhr"],
-  "name": "yuzu"
+  "name": "yuzu-web"
 }
