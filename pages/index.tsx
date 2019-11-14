@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Prismic from 'prismic-javascript'
+import { RichText } from 'prismic-reactjs'
 
 const colors = {
   lemon: '#f8c000',
@@ -102,6 +103,8 @@ interface HomeData {
   drinks_title?: string
   body: Array<DrinksSection | WinesSection>
   lunch_offer?: PrismicImage
+  reservation_title?: string
+  reservation_body?: unknown
 }
 
 interface Props {
@@ -340,6 +343,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
       </section>
     </section>
 
+    <section className="reserve">
+      <h1 className="reserve-title">{homeData.reservation_title}</h1>
+
+      <div className="reserve-body">
+        <RichText render={homeData.reservation_body} />
+      </div>
+    </section>
+
     <section className="gallery">
       <img
         className="galleri-kanjiYuzu"
@@ -478,13 +489,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
       .menu {
         position: relative;
-        margin: 10px;
+        margin: 10px 10px 0;
         background-color: white;
         border: 2px solid ${colors.ocean};
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        margin-bottom: 80px;
       }
       .menu::after {
         content: '';
@@ -749,6 +759,52 @@ const Index: NextPage<Props> = ({ homeData }) => (
         color: ${colors.ocean};
         margin: 0 4px 0 0;
       }
+      .reserve {
+        position: relative;
+        background-color: ${colors.ocean};
+        padding: 36px 48px 50px;
+        margin-bottom: 80px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .reserve:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 10vh;
+        bottom: 100%;
+        z-index: -2;
+        background-color: ${colors.ocean};
+      }
+      .reserve-title {
+        font-size: 22px;
+        text-align: center;
+        text-transform: lowercase;
+        line-height: 1.15;
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        color: white;
+        margin: 0 0 16px 0;
+        max-width: 560px;
+        text-align: center;
+      }
+      .reserve-body {
+        max-width: 560px;
+      }
+      .reserve-body :global(p) {
+        font-family: 'Shinra';
+        font-size: 20px;
+        line-height: 1.2;
+        color: white;
+        text-align: center;
+        margin: 0 0 0.7em;
+      }
+      .reserve-body :global(a) {
+        color: white;
+      }
 
       .gallery {
         padding: 25px 25px 70px;
@@ -843,6 +899,17 @@ const Index: NextPage<Props> = ({ homeData }) => (
         }
         .menu-burgers-extras:first {
           margin-right: 16px;
+        }
+
+        .reserve {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+        .reserve-title {
+          font-size: 28px;
+        }
+        .reserve-body :global(p) {
+          font-size: 24px;
         }
 
         .footer-info {
