@@ -101,6 +101,7 @@ interface HomeData {
   }>
   drinks_title?: string
   body: Array<DrinksSection | WinesSection>
+  lunch_offer?: PrismicImage
 }
 
 interface Props {
@@ -191,6 +192,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
             <p className="menu-burgers-description">{burger.description}</p>
           </article>
         ))}
+
+        {homeData.lunch_offer && (
+          <img
+            className="menu-lunchOffer"
+            src={homeData.lunch_offer.url}
+            alt={homeData.lunch_offer.alt}
+          />
+        )}
 
         <div className="menu-burgers-extras">
           <p className="menu-burgers-extra">
@@ -566,6 +575,10 @@ const Index: NextPage<Props> = ({ homeData }) => (
         margin: 0 16px;
         padding-bottom: 0.5em;
       }
+      .menu-lunchOffer {
+        max-width: 100%;
+        height: auto;
+      }
       .menu-side {
         margin: 0 auto 20px;
         max-width: 150px;
@@ -870,6 +883,11 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .menu-subsection {
           padding-bottom: 20px;
         }
+        .menu-lunchOffer {
+          position: absolute;
+          top: 4px;
+          right: -30px;
+        }
 
         .galleri-kanjiYuzu {
           left: 10px;
@@ -908,6 +926,10 @@ const Index: NextPage<Props> = ({ homeData }) => (
         }
         .menu-grill {
           break-inside: avoid;
+        }
+        .menu-lunchOffer {
+          top: 50px;
+          right: -80px;
         }
       }
     `}</style>
