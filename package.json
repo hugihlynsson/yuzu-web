@@ -13,6 +13,7 @@
   "dependencies": {
     "next": "^9.1.1",
     "prismic-javascript": "^2.1.1",
+    "prismic-reactjs": "^1.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
