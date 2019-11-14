@@ -8,12 +8,12 @@ const colors = {
   sky: '#969DC5',
 }
 
-type Diet = 'Vegan (v)' | 'No specific diet' | 'Vegitarian (g)'
+type Diet = 'Vegan (v)' | 'No specific diet' | 'Vegetarian (g)'
 
 const dietCopy: { [key in Diet]: string } = {
   'Vegan (v)': '(v)',
   'No specific diet': '',
-  'Vegitarian (g)': '(g)',
+  'Vegetarian (g)': '(g)',
 }
 
 interface PrismicImage {
@@ -77,7 +77,7 @@ interface HomeData {
     name?: string
     description?: string
     price?: number
-    diet?: Diet
+    diet: Diet
   }>
   burgers_extra_info_first?: string
   burgers_extra_info_second?: string
@@ -86,7 +86,7 @@ interface HomeData {
     name?: string
     description?: string
     price?: number
-    diet?: Diet
+    diet: Diet
   }>
   dips_title?: string
   dips: Array<{ name?: string }>
@@ -97,7 +97,7 @@ interface HomeData {
     name?: string
     description?: string
     price?: number
-    diet?: Diet
+    diet: Diet
   }>
   drinks_title?: string
   body: Array<DrinksSection | WinesSection>
@@ -186,6 +186,11 @@ const Index: NextPage<Props> = ({ homeData }) => (
           <article className="menu-burgers">
             <h3 className="menu-burgers-title">
               {burger.name}{' '}
+              {burger.diet !== 'No specific diet' && (
+                <span className="menu-burgers-diet">
+                  {dietCopy[burger.diet]}{' '}
+                </span>
+              )}
               <span className="menu-burgers-price">{burger.price} kr.</span>
             </h3>
 
@@ -218,7 +223,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
           {homeData.sides.map((side) => (
             <article className="menu-side">
-              <h3 className="menu-side-title">{side.name} </h3>
+              <h3 className="menu-side-title">
+                {side.name}{' '}
+                {side.diet !== 'No specific diet' && (
+                  <span className="menu-side-diet">{dietCopy[side.diet]}</span>
+                )}
+              </h3>
 
               {side.description && (
                 <p className="menu-side-description">{side.description}</p>
@@ -237,7 +247,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
           <div className="menu-grill-items">
             {homeData.grill.map((grill) => (
               <article className="menu-grill">
-                <h3 className="menu-grill-title">{grill.name} </h3>
+                <h3 className="menu-grill-title">
+                  {grill.name}{' '}
+                  {grill.diet !== 'No specific diet' && (
+                    <span className="menu-grill-diet">
+                      {dietCopy[grill.diet]}
+                    </span>
+                  )}
+                </h3>
 
                 {grill.description && (
                   <p className="menu-grill-description">{grill.description}</p>
@@ -554,6 +571,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
         color: ${colors.ocean};
         margin: 0 0 0.3em;
       }
+      .menu-burgers-diet {
+        font-size: 15px;
+      }
       .menu-burgers-price {
         font-size: 14px;
         display: inline-block;
@@ -593,6 +613,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
         color: ${colors.ocean};
         margin: 0 0 0.3em;
       }
+      .menu-side-diet {
+        font-size: 12px;
+      }
       .menu-side-description {
         font-family: 'Shinra';
         font-size: 13px;
@@ -624,6 +647,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
         letter-spacing: 0.1em;
         color: ${colors.ocean};
         margin: 0 0 0.3em;
+      }
+      .menu-grill-diet {
+        font-size: 12px;
       }
       .menu-grill-description {
         font-family: 'Shinra';
