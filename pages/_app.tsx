@@ -67,6 +67,7 @@ export default class CustomApp extends App {
             font-family: 'Sackers Gothic', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-variant-ligatures: none;
           }
 
           #__next {
