@@ -267,7 +267,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         </section>
 
         <section className="menu-section menu-section--horizontal">
-          <h2 className="menu-section-title">{homeData.sides_title}</h2>
+          <h2 className="menu-section-title">{homeData.dips_title}</h2>
 
           {homeData.dips.map((dip) => (
             <p className="menu-dip">{dip.name}</p>
