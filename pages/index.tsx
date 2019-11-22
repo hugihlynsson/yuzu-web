@@ -186,7 +186,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         </h2>
 
         {homeData.burgers.map((burger) => (
-          <article className="menu-burgers">
+          <article key={burger.name} className="menu-burgers">
             <h3 className="menu-burgers-title">
               {burger.name}{' '}
               {burger.diet !== 'No specific diet' && (
@@ -225,7 +225,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
           <h2 className="menu-section-title">{homeData.sides_title}</h2>
 
           {homeData.sides.map((side) => (
-            <article className="menu-side">
+            <article key={side.name} className="menu-side">
               <h3 className="menu-side-title">
                 {side.name}{' '}
                 {side.diet !== 'No specific diet' && (
@@ -249,7 +249,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
           <div className="menu-grill-items">
             {homeData.grill.map((grill) => (
-              <article className="menu-grill">
+              <article key={grill.name} className="menu-grill">
                 <h3 className="menu-grill-title">
                   {grill.name}{' '}
                   {grill.diet !== 'No specific diet' && (
@@ -273,7 +273,9 @@ const Index: NextPage<Props> = ({ homeData }) => (
           <h2 className="menu-section-title">{homeData.dips_title}</h2>
 
           {homeData.dips.map((dip) => (
-            <p className="menu-dip">{dip.name}</p>
+            <p key={dip.name} className="menu-dip">
+              {dip.name}
+            </p>
           ))}
 
           <p className="menu-dips-price">{homeData.dips_price} kr.</p>
@@ -292,14 +294,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
                 (item): item is DrinksSection =>
                   item.slice_type === 'drinks_section'
               )
-              .map((drinks) => (
-                <section className="menu-subsection">
+              .map((drinks, index) => (
+                <section key={index} className="menu-subsection">
                   <h3 className="menu-subsection-title">
                     {drinks.primary.title}
                   </h3>
 
                   {drinks.items.map((item) => (
-                    <article className="menu-drink">
+                    <article key={item.name} className="menu-drink">
                       <h4 className="menu-drink-name">{item.name}</h4>
                       {item.description && (
                         <span className="menu-drink-description">
@@ -320,8 +322,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
                 (item): item is WinesSection =>
                   item.slice_type === 'wine_section'
               )
-              .map((drinks) => (
-                <section className="menu-subsection">
+              .map((drinks, index) => (
+                <section key={index} className="menu-subsection">
                   <header className="menu-subsection-header">
                     <h3 className="menu-subsection-title">
                       {drinks.primary.title}
@@ -333,7 +335,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
                   </header>
 
                   {drinks.items.map((item) => (
-                    <article className="menu-wine">
+                    <article key={item.name} className="menu-wine">
                       <div className="menu-wine-top">
                         <h4 className="menu-drink-name">{item.name}</h4>
 
