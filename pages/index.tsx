@@ -115,7 +115,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
   <>
     <Head>
       <title>{homeData.title}</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       <link rel="icon" href="/icon.png"></link>
       <meta name="description" content={homeData.description} />
       <meta property="og:url" content="https://yuzu.is" />
