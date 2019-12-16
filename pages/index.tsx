@@ -478,7 +478,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        height: 90%;
+        height: 100%;
         position: relative;
         min-height: 380px;
         min-height: fit-content;
