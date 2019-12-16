@@ -121,7 +121,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
-      <link rel="icon" href="/icon.png"></link>
+      <link rel="icon" href="/icon.png" />
+      <link rel="apple-touch-icon" href="/icon-512w.png" />
       <meta name="description" content={homeData.description} />
       <meta property="og:url" content="https://yuzu.is" />
       <meta property="og:type" content="website" />
