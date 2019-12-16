@@ -9,6 +9,8 @@ const colors = {
   sky: '#969DC5',
 }
 
+declare const fbq: any
+
 type Diet = 'Vegan (v)' | 'No specific diet' | 'Vegetarian (g)'
 
 const dietCopy: { [key in Diet]: string } = {
@@ -115,7 +117,10 @@ const Index: NextPage<Props> = ({ homeData }) => (
   <>
     <Head>
       <title>{homeData.title}</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      />
       <link rel="icon" href="/icon.png"></link>
       <meta name="description" content={homeData.description} />
       <meta property="og:url" content="https://yuzu.is" />
@@ -367,7 +372,32 @@ const Index: NextPage<Props> = ({ homeData }) => (
       <h1 className="reserve-title">{homeData.reservation_title}</h1>
 
       <div className="reserve-body">
-        <RichText render={homeData.reservation_body} />
+        <RichText
+          render={homeData.reservation_body}
+          serializeHyperlink={(
+            type: any,
+            element: { data: { url: string; target: string } },
+            content: any,
+            children: React.ReactNode,
+            index: number
+          ) => (
+            <a
+              key={index}
+              href={element.data.url}
+              target={element.data.target}
+              rel={
+                element.data.target === '_blank' ? 'noopener noreferrer' : ''
+              }
+              onClick={() => {
+                if (element.data.url.includes('yuzu.dinesuperb.com') && fbq) {
+                  fbq('track', 'Lead')
+                }
+              }}
+            >
+              {children}
+            </a>
+          )}
+        />
       </div>
     </section>
 
