@@ -142,7 +142,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
           @{homeData.instagram_handle}
         </a>
 
-        <p className="top-item top-item--rightAlign">{homeData.open}</p>
+        {homeData.phone && (
+          <a className="top-item" href={`tel:${homeData.phone}`}>
+            s.{homeData.phone.toString().substring(0, 3)}-
+            {homeData.phone.toString().substring(3, 7)}
+          </a>
+        )}
       </div>
 
       <picture>
@@ -169,6 +174,8 @@ const Index: NextPage<Props> = ({ homeData }) => (
           />
         </h1>
       </header>
+
+      <p className="hero-openingHours">{homeData.open}</p>
     </div>
 
     <section className="about">
@@ -448,7 +455,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
           Hverfisgata 44
         </a>
 
-        <p className="footer-info-item">{homeData.open}</p>
+        {homeData.phone && (
+          <a className="footer-info-item" href={`tel:${homeData.phone}`}>
+            s.{homeData.phone.toString().substring(0, 3)}-
+            {homeData.phone.toString().substring(3, 7)}
+          </a>
+        )}
       </div>
     </footer>
 
@@ -458,13 +470,23 @@ const Index: NextPage<Props> = ({ homeData }) => (
         flex-direction: column;
         align-items: stretch;
         height: 90%;
-        padding-bottom: 40px;
         position: relative;
-        min-height: 360px;
+        min-height: 380px;
+        min-height: fit-content;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: -1;
       }
 
       .hero-image {
-        z-index: -1;
+        z-index: -2;
         position: absolute;
         top: 0;
         left: 0;
@@ -494,9 +516,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         text-decoration: none;
         text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
       }
-      .top-item--rightAlign {
-        text-align: right;
-      }
 
       header {
         display: flex;
@@ -507,7 +526,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
       .header-title {
         border: 4px solid ${colors.lemon};
-        margin: 10px;
+        margin: 0 10px;
         background-color: white;
         max-width: 500px;
         flex-grow: 1;
@@ -517,6 +536,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
         display: block;
         width: 100%;
         height: auto;
+      }
+
+      .hero-openingHours {
+        color: white;
+        text-align: center;
+        maring: 12px;
       }
 
       .about {
@@ -936,11 +961,15 @@ const Index: NextPage<Props> = ({ homeData }) => (
 
       @media (min-width: 600px) {
         .top {
-          margin: 20px 30px;
+          padding: 25px;
         }
         .top-item {
           font-size: 16px;
         }
+        .hero-openingHours {
+          margin: 25px;
+        }
+
         .about-text {
           font-size: 33px;
           margin: 0;
