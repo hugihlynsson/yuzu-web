@@ -48,7 +48,7 @@ interface WinesSection {
 }
 
 interface HomeData {
-  open?: string
+  opening_hours?: Array<{ day: string }>
   phone?: number
   instagram_handle?: string
   header_image: PrismicImage & {
@@ -175,7 +175,16 @@ const Index: NextPage<Props> = ({ homeData }) => (
         </h1>
       </header>
 
-      <p className="hero-openingHours">{homeData.open}</p>
+      {homeData.opening_hours && (
+        <p className="hero-openingHours">
+          {homeData.opening_hours.map(({ day }, index, days) => (
+            <span className="hero-openingHours-day" key={index}>
+              {day}
+              {index < days.length - 1 && ', '}
+            </span>
+          ))}
+        </p>
+      )}
     </div>
 
     <section className="about">
@@ -541,7 +550,11 @@ const Index: NextPage<Props> = ({ homeData }) => (
       .hero-openingHours {
         color: white;
         text-align: center;
-        maring: 12px;
+        margin: 12px;
+        font-size: 14px;
+      }
+      .hero-openingHours-day {
+        display: block;
       }
 
       .about {
@@ -1009,6 +1022,14 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       @media (min-width: 800px) {
+        .hero-openingHours-day {
+          display: inline-block;
+        }
+        .hero-openingHours-day::after {
+          content: ' ';
+          display: inline-block;
+        }
+
         .about {
           margin-top: 80px;
           grid-gap: 32px;
