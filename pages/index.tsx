@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Prismic from 'prismic-javascript'
 
@@ -6,7 +6,7 @@ import Hero from '../components/Hero'
 import Menu from '../components/Menu'
 import Reserve from '../components/Reserve'
 import Gallery from '../components/Gallery'
-import { colors } from '../constants'
+import { colors, prismicUrl } from '../constants'
 import { HomeData } from '../types'
 
 interface Props {
@@ -171,15 +171,18 @@ const Index: NextPage<Props> = ({ homeData }) => (
   </>
 )
 
-Index.getInitialProps = async ({ req, res, query }) => {
-  if (res && !('preview' in query)) {
-    res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
+export const getStaticProps: GetStaticProps = async ({
+  preview,
+  previewData,
+}) => {
+  // const options = preview ? { accessToken: previewData.token } : {}
+  console.log('Preview', preview, previewData)
+  const api = await Prismic.api(prismicUrl)
+  const home = await api.getSingle('home')
+
+  return {
+    props: { homeData: home.data as HomeData },
   }
-  const API = await Prismic.getApi('https://yuzu.cdn.prismic.io/api/v2', {
-    req,
-  })
-  const home = await API.getSingle('home')
-  return { homeData: home.data as HomeData }
 }
 
 export default Index
