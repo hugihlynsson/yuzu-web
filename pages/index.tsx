@@ -4,6 +4,7 @@ import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 
 import Hero from '../components/Hero'
+import Gallery from '../components/Gallery'
 import { colors } from '../constants'
 import { PrismicImage } from '../types'
 
@@ -361,41 +362,11 @@ const Index: NextPage<Props> = ({ homeData }) => (
       </div>
     </section>
 
-    <section className="gallery">
-      <img
-        className="galleri-kanjiYuzu"
-        src="/kanji-yuzu.svg"
-        alt="Yuzu á Japönsku"
-      />
-      <div className="gallery-images">
-        <img
-          className="galleri-topLeft"
-          sizes="328w"
-          srcSet={`${homeData.content_image_top_left.url} ${homeData.content_image_top_left.dimensions.width}w, ${homeData.content_image_top_left.Small.url} ${homeData.content_image_top_left.Small.dimensions.width}w`}
-          src={homeData.content_image_top_left.url}
-          alt={homeData.content_image_top_left.alt}
-        />
-        <img
-          className="galleri-right"
-          sizes="243w"
-          srcSet={`${homeData.content_image_right.url} ${homeData.content_image_right.dimensions.width}w, ${homeData.content_image_right.Small.url} ${homeData.content_image_right.Small.dimensions.width}w`}
-          src={homeData.content_image_right.url}
-          alt={homeData.content_image_right.alt}
-        />
-        <img
-          className="galleri-bottom"
-          sizes="221w"
-          srcSet={`${homeData.content_image_bottom.url} ${homeData.content_image_bottom.dimensions.width}w, ${homeData.content_image_bottom.Small.url} ${homeData.content_image_bottom.Small.dimensions.width}w`}
-          src={homeData.content_image_bottom.url}
-          alt={homeData.content_image_bottom.alt}
-        />
-      </div>
-      <img
-        className="galleri-kanjiBurgers"
-        src="/kanji-burgers.svg"
-        alt="Borgarar á Japönsku"
-      />
-    </section>
+    <Gallery
+      topLeft={homeData.content_image_top_left}
+      right={homeData.content_image_right}
+      bottom={homeData.content_image_bottom}
+    />
 
     <footer>
       <p className="footer-text">{homeData.footer_text}</p>
@@ -764,49 +735,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         color: white;
       }
 
-      .gallery {
-        padding: 25px 25px 70px;
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      .galleri-kanjiYuzu {
-        position: absolute;
-        right: 50px;
-        top: 0;
-      }
-      .gallery-images {
-        display: flex;
-        flex-direction: column;
-        max-width: 540px;
-        margin: 0 auto;
-      }
-      .galleri-topLeft {
-        width: 60%;
-        max-width: 328px;
-        height: auto;
-      }
-      .galleri-right {
-        width: 50%;
-        max-width: 243px;
-        height: auto;
-        align-self: flex-end;
-        margin-top: -20%;
-      }
-      .galleri-bottom {
-        width: 40%;
-        max-width: 221px;
-        height: auto;
-        margin-top: -30%;
-        align-self: center;
-        margin-right: 20%;
-      }
-      .galleri-kanjiBurgers {
-        position: absolute;
-        left: 20px;
-        bottom: 0;
-      }
-
       footer {
         padding: 0 25px 45px;
       }
@@ -908,16 +836,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
           right: -30px;
         }
 
-        .galleri-kanjiYuzu {
-          left: 10px;
-          top: 30%;
-          right: auto;
-        }
-        .galleri-kanjiBurgers {
-          bottom: 30%;
-          right: 10px;
-          left: auto;
-        }
         footer {
           padding-bottom: 95px;
         }
