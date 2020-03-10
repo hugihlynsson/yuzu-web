@@ -3,11 +3,9 @@ import Head from 'next/head'
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 
-const colors = {
-  lemon: '#f8c000',
-  ocean: '#2d3a8a',
-  sky: '#969DC5',
-}
+import Hero from '../components/Hero'
+import { colors } from '../constants'
+import { PrismicImage } from '../types'
 
 declare const fbq: any
 
@@ -17,12 +15,6 @@ const dietCopy: { [key in Diet]: string } = {
   'Vegan (v)': '(v)',
   'No specific diet': '',
   'Vegetarian (g)': '(g)',
-}
-
-interface PrismicImage {
-  alt?: string
-  dimensions: { width: number; height: number }
-  url: string
 }
 
 interface DrinksSection {
@@ -49,7 +41,7 @@ interface WinesSection {
 
 interface HomeData {
   opening_hours?: Array<{ day: string }>
-  phone?: number
+  phone?: string
   instagram_handle?: string
   header_image: PrismicImage & {
     Narrow: PrismicImage
@@ -131,61 +123,12 @@ const Index: NextPage<Props> = ({ homeData }) => (
       <meta property="og:image" content={homeData.header_image.Share.url} />
     </Head>
 
-    <div className="hero">
-      <div className="top">
-        <a
-          className="top-item"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={`https://www.instagram.com/${homeData.instagram_handle}/`}
-        >
-          @{homeData.instagram_handle}
-        </a>
-
-        {homeData.phone && (
-          <a className="top-item" href={`tel:${homeData.phone}`}>
-            s.{homeData.phone.toString().substring(0, 3)}-
-            {homeData.phone.toString().substring(3, 7)}
-          </a>
-        )}
-      </div>
-
-      <picture>
-        <source
-          className="hero-image"
-          media="(max-aspect-ratio: 1/1)"
-          srcSet={homeData.header_image.Narrow.url}
-        />
-        <img
-          className="hero-image"
-          sizes="100vw"
-          srcSet={`${homeData.header_image.url} ${homeData.header_image.dimensions.width}w, ${homeData.header_image.Medium.url} ${homeData.header_image.Medium.dimensions.width}w, ${homeData.header_image.Small.url} ${homeData.header_image.Small.dimensions.width}w`}
-          src={homeData.header_image.url}
-          alt={homeData.header_image.alt || ''}
-        />
-      </picture>
-
-      <header>
-        <h1 className="header-title">
-          <img
-            className="logo"
-            src="/logo.svg"
-            alt="Yuzu – Hverfisgata 44, Reykjavík, Ísland"
-          />
-        </h1>
-      </header>
-
-      {homeData.opening_hours && (
-        <p className="hero-openingHours">
-          {homeData.opening_hours.map(({ day }, index, days) => (
-            <span className="hero-openingHours-day" key={index}>
-              {day}
-              {index < days.length - 1 && ', '}
-            </span>
-          ))}
-        </p>
-      )}
-    </div>
+    <Hero
+      instagramHandle={homeData.instagram_handle}
+      phone={homeData.phone}
+      headerImage={homeData.header_image}
+      openingHours={homeData.opening_hours}
+    />
 
     <section className="about">
       <img
@@ -474,89 +417,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
     </footer>
 
     <style jsx>{`
-      .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        height: 100%;
-        position: relative;
-        min-height: 380px;
-        min-height: fit-content;
-      }
-      .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.2);
-        z-index: -1;
-      }
-
-      .hero-image {
-        z-index: -2;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .top {
-        display: grid;
-        justify-items: center;
-        grid-gap: 32px;
-        flex-grow: 0;
-        flex-shrink: 0;
-        justify-content: space-between;
-        padding: 12px;
-      }
-      .top-item {
-        grid-row: 1;
-        margin: 0;
-        color: white;
-        font-size: 14px;
-        text-transform: lowercase;
-        letter-spacing: 0.05em;
-        text-decoration: none;
-        text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-      }
-
-      header {
-        display: flex;
-        flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .header-title {
-        border: 4px solid ${colors.lemon};
-        margin: 0 10px;
-        background-color: white;
-        max-width: 500px;
-        flex-grow: 1;
-      }
-
-      .logo {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .hero-openingHours {
-        color: white;
-        text-align: center;
-        margin: 12px;
-        font-size: 14px;
-      }
-      .hero-openingHours-day {
-        display: block;
-      }
-
       .about {
         display: grid;
         place-items: center;
@@ -973,16 +833,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       @media (min-width: 600px) {
-        .top {
-          padding: 25px;
-        }
-        .top-item {
-          font-size: 16px;
-        }
-        .hero-openingHours {
-          margin: 25px;
-        }
-
         .about-text {
           font-size: 33px;
           margin: 0;
@@ -1022,14 +872,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
       }
 
       @media (min-width: 800px) {
-        .hero-openingHours-day {
-          display: inline-block;
-        }
-        .hero-openingHours-day::after {
-          content: ' ';
-          display: inline-block;
-        }
-
         .about {
           margin-top: 80px;
           grid-gap: 32px;
