@@ -1,77 +1,13 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Prismic from 'prismic-javascript'
-import { RichText } from 'prismic-reactjs'
 
 import Hero from '../components/Hero'
 import Menu from '../components/Menu'
+import Reserve from '../components/Reserve'
 import Gallery from '../components/Gallery'
 import { colors } from '../constants'
-import { Diet, DrinksSection, WinesSection, PrismicImage } from '../types'
-
-declare const fbq: any
-
-interface HomeData {
-  opening_hours?: Array<{ day: string }>
-  phone?: string
-  instagram_handle?: string
-  header_image: PrismicImage & {
-    Narrow: PrismicImage
-    Medium: PrismicImage
-    Small: PrismicImage
-    Share: PrismicImage
-  }
-  city?: string
-  address?: string
-  country?: string
-  text?: string
-  content_image_top_left: PrismicImage & {
-    Small: PrismicImage
-  }
-  content_image_right: PrismicImage & {
-    Small: PrismicImage
-  }
-  content_image_bottom: PrismicImage & {
-    Small: PrismicImage
-  }
-  footer_text?: string
-  title?: string
-  description?: string
-
-  menu_title?: string
-  burgers_title?: string
-  burgers: Array<{
-    name?: string
-    description?: string
-    price?: number
-    diet: Diet
-  }>
-  burgers_extra_info_first?: string
-  burgers_extra_info_second?: string
-  sides_title?: string
-  sides: Array<{
-    name?: string
-    description?: string
-    price?: number
-    diet: Diet
-  }>
-  dips_title?: string
-  dips: Array<{ name?: string }>
-  dips_price?: number
-  grill_title?: string
-  grill_subtitle?: string
-  grill: Array<{
-    name?: string
-    description?: string
-    price?: number
-    diet: Diet
-  }>
-  drinks_title?: string
-  body: Array<DrinksSection | WinesSection>
-  lunch_offer?: PrismicImage
-  reservation_title?: string
-  reservation_body?: unknown
-}
+import { HomeData } from '../types'
 
 interface Props {
   homeData: HomeData
@@ -81,12 +17,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
   <>
     <Head>
       <title>{homeData.title}</title>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-      />
-      <link rel="icon" href="/icon.png" />
-      <link rel="apple-touch-icon" href="/icon-512w.png" />
       <meta name="description" content={homeData.description} />
       <meta property="og:url" content="https://yuzu.is" />
       <meta property="og:type" content="website" />
@@ -132,38 +62,10 @@ const Index: NextPage<Props> = ({ homeData }) => (
       lunchOffer={homeData.lunch_offer}
     />
 
-    <section className="reserve">
-      <h1 className="reserve-title">{homeData.reservation_title}</h1>
-
-      <div className="reserve-body">
-        <RichText
-          render={homeData.reservation_body}
-          serializeHyperlink={(
-            type: any,
-            element: { data: { url: string; target: string } },
-            content: any,
-            children: React.ReactNode,
-            index: number
-          ) => (
-            <a
-              key={index}
-              href={element.data.url}
-              target={element.data.target}
-              rel={
-                element.data.target === '_blank' ? 'noopener noreferrer' : ''
-              }
-              onClick={() => {
-                if (element.data.url.includes('yuzu.dinesuperb.com') && fbq) {
-                  fbq('track', 'Lead')
-                }
-              }}
-            >
-              {children}
-            </a>
-          )}
-        />
-      </div>
-    </section>
+    <Reserve
+      title={homeData.reservation_title}
+      body={homeData.reservation_body}
+    />
 
     <Gallery
       topLeft={homeData.content_image_top_left}
@@ -200,7 +102,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         max-width: 900px;
         margin: 0 auto 60px;
       }
-
       .about-text {
         margin: 0;
         color: ${colors.ocean};
@@ -208,53 +109,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         font-size: 28px;
         text-align: center;
         line-height: 1.3;
-      }
-
-      .reserve {
-        position: relative;
-        background-color: ${colors.ocean};
-        padding: 36px 48px 50px;
-        margin-bottom: 80px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
-      .reserve:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 10vh;
-        bottom: 100%;
-        z-index: -2;
-        background-color: ${colors.ocean};
-      }
-      .reserve-title {
-        font-size: 22px;
-        text-align: center;
-        text-transform: lowercase;
-        line-height: 1.15;
-        font-weight: 400;
-        letter-spacing: 0.3em;
-        color: white;
-        margin: 0 0 16px 0;
-        max-width: 560px;
-        text-align: center;
-      }
-      .reserve-body {
-        max-width: 560px;
-      }
-      .reserve-body :global(p) {
-        font-family: 'Shinra';
-        font-size: 20px;
-        line-height: 1.2;
-        color: white;
-        text-align: center;
-        margin: 0 0 0.7em;
-      }
-      .reserve-body :global(a) {
-        color: white;
       }
 
       footer {
@@ -286,17 +140,6 @@ const Index: NextPage<Props> = ({ homeData }) => (
         .about-text {
           font-size: 33px;
           margin: 0;
-        }
-
-        .reserve {
-          padding-top: 60px;
-          padding-bottom: 60px;
-        }
-        .reserve-title {
-          font-size: 28px;
-        }
-        .reserve-body :global(p) {
-          font-size: 24px;
         }
 
         .footer-info {
