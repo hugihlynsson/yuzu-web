@@ -1,5 +1,6 @@
 import React, { StatelessComponent } from 'react'
 
+import Button from './Button'
 import { colors } from '../constants'
 import { PrismicImage } from '../types'
 
@@ -66,6 +67,10 @@ const Hero: StatelessComponent<Props> = ({
         />
       </h1>
     </header>
+
+    <div className="orderButtonBox">
+      <Button href="https://panta.yuzu.is">Panta take-away</Button>
+    </div>
 
     {openingHours && (
       <p className="hero-openingHours">
@@ -152,10 +157,15 @@ const Hero: StatelessComponent<Props> = ({
         height: auto;
       }
 
+      .orderButtonBox {
+        align-self: center;
+        margin-top: 25px;
+      }
+
       .hero-openingHours {
         color: white;
         text-align: center;
-        margin: 12px;
+        margin: 25px 12px 12px;
         font-size: 14px;
       }
       .hero-openingHours-day {

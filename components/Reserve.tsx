@@ -1,6 +1,7 @@
 import React, { StatelessComponent } from 'react'
 import { RichText } from 'prismic-reactjs'
 
+import Button from './Button'
 import { colors } from '../constants'
 
 declare const fbq: any
@@ -12,6 +13,10 @@ interface Props {
 
 const Reserve: StatelessComponent<Props> = ({ title, body }) => (
   <section className="reserve">
+    <div className="orderButtonBox">
+      <Button href="https://panta.yuzu.is">Panta take-away</Button>
+    </div>
+
     <h1 className="reserve-title">{title}</h1>
 
     <div className="reserve-body">
@@ -62,13 +67,16 @@ const Reserve: StatelessComponent<Props> = ({ title, body }) => (
         z-index: -2;
         background-color: ${colors.ocean};
       }
+      .orderButtonBox {
+        margin-bottom: 40px;
+      }
+
       .reserve-title {
         font-size: 22px;
         text-align: center;
         text-transform: lowercase;
         line-height: 1.15;
         font-weight: 400;
-        letter-spacing: 0.3em;
         color: white;
         margin: 0 0 16px 0;
         max-width: 560px;
