@@ -10,11 +10,12 @@ const Button: StatelessComponent<Props> = ({ href, children }) => (
     {children}
     <style jsx>{`
       a {
+        display: inline-block;
         background: ${colors.lemon};
         color: ${colors.ocean};
-        font-size: 14px;
+        font-size: 16px;
         text-transform: lowercase;
-        padding: 13px 20px 13px;
+        padding: 14px 20px 16px;
         transition: filter 0.2s;
         text-decoration: none;
       }

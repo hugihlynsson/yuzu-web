@@ -70,6 +70,7 @@ const Hero: StatelessComponent<Props> = ({
 
     <div className="orderButtonBox">
       <Button href="https://panta.yuzu.is">Panta take-away</Button>
+      <p className="orderButtonDescription">Þú pantar og sækir</p>
     </div>
 
     {openingHours && (
@@ -160,6 +161,13 @@ const Hero: StatelessComponent<Props> = ({
       .orderButtonBox {
         align-self: center;
         margin-top: 25px;
+      }
+      .orderButtonDescription {
+        margin-top: 4px;
+        color: white;
+        font-size: 12px;
+        text-transform: lowercase;
+        text-align: center;
       }
 
       .hero-openingHours {

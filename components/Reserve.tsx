@@ -15,6 +15,7 @@ const Reserve: StatelessComponent<Props> = ({ title, body }) => (
   <section className="reserve">
     <div className="orderButtonBox">
       <Button href="https://panta.yuzu.is">Panta take-away</Button>
+      <p className="orderButtonDescription">Þú pantar og sækir</p>
     </div>
 
     <h1 className="reserve-title">{title}</h1>
@@ -69,6 +70,13 @@ const Reserve: StatelessComponent<Props> = ({ title, body }) => (
       }
       .orderButtonBox {
         margin-bottom: 40px;
+      }
+      .orderButtonDescription {
+        margin-top: 4px;
+        color: white;
+        font-size: 12px;
+        text-transform: lowercase;
+        text-align: center;
       }
 
       .reserve-title {
