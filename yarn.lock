@@ -942,10 +942,10 @@
   resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.3.2.tgz#f8e282fdeb448eb6b70bcc18c5d46c911072687a"
   integrity sha512-kEa7v3trZmW6iWeTJrhg+ZsE9njae7mLkgyZB5M1r975JHr5PQ69B5aX7hrEAj7aAJYvCKETgAczx4gGR8MOzQ==
 
-"@types/node@^13.9.3":
-  version "13.9.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.9.3.tgz#6356df2647de9eac569f9a52eda3480fa9e70b4d"
-  integrity sha512-01s+ac4qerwd6RHD+mVbOEsraDHSgUaefQlEdBbUolnQFjKwCr7luvAlEwW1RFojh67u0z4OUTjPn9LEl4zIkA==
+"@types/node@^14.0.3":
+  version "14.0.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.3.tgz#57bcb277f753a3dabfa56cea0a93288aae82143c"
+  integrity sha512-a8TR2N5VEJCL9HEJrAfwv3UI1bZq50HydowDDVV6pfnY7ZwG5Pjii+nSDhrDtGW3XKMoVKOgG8zS/Kv5j399uA==
 
 "@types/prop-types@*":
   version "15.7.3"
