@@ -104,48 +104,46 @@ const Menu: StatelessComponent<Props> = ({
 
     <div className="menu-horizontal">
       <section className="menu-section menu-section--horizontal">
-        <h2 className="menu-section-title">{sidesTitle}</h2>
+        <h2 className="menu-section-title">{grillTitle}</h2>
 
-        {sides.map((side) => (
-          <article key={side.name} className="menu-side">
-            <h3 className="menu-side-title">
-              {side.name}{' '}
-              {side.diet !== 'No specific diet' && (
-                <span className="menu-side-diet">{dietCopy[side.diet]}</span>
+        <p className="menu-section-subtitle">{grillSubtitle}</p>
+
+        {grill.map((grill) => (
+          <article key={grill.name} className="menu-grill">
+            <h3 className="menu-grill-title">
+              {grill.name}{' '}
+              {grill.diet !== 'No specific diet' && (
+                <span className="menu-grill-diet">{dietCopy[grill.diet]}</span>
               )}
             </h3>
 
-            {side.description && (
-              <p className="menu-side-description">{side.description}</p>
+            {grill.description && (
+              <p className="menu-grill-description">{grill.description}</p>
             )}
 
-            <p className="menu-side-price">{side.price} kr.</p>
+            <p className="menu-grill-price">{grill.price} kr.</p>
           </article>
         ))}
       </section>
 
       <section className="menu-section menu-section--horizontal">
-        <h2 className="menu-section-title">{grillTitle}</h2>
-
-        <p className="menu-section-subtitle">{grillSubtitle}</p>
+        <h2 className="menu-section-title">{sidesTitle}</h2>
 
         <div className="menu-grill-items">
-          {grill.map((grill) => (
-            <article key={grill.name} className="menu-grill">
-              <h3 className="menu-grill-title">
-                {grill.name}{' '}
-                {grill.diet !== 'No specific diet' && (
-                  <span className="menu-grill-diet">
-                    {dietCopy[grill.diet]}
-                  </span>
+          {sides.map((side) => (
+            <article key={side.name} className="menu-side">
+              <h3 className="menu-side-title">
+                {side.name}{' '}
+                {side.diet !== 'No specific diet' && (
+                  <span className="menu-side-diet">{dietCopy[side.diet]}</span>
                 )}
               </h3>
 
-              {grill.description && (
-                <p className="menu-grill-description">{grill.description}</p>
+              {side.description && (
+                <p className="menu-side-description">{side.description}</p>
               )}
 
-              <p className="menu-grill-price">{grill.price} kr.</p>
+              <p className="menu-side-price">{side.price} kr.</p>
             </article>
           ))}
         </div>
@@ -587,7 +585,7 @@ const Menu: StatelessComponent<Props> = ({
           columns: 2;
           column-gap: 4px;
         }
-        .menu-grill {
+        .menu-side {
           break-inside: avoid;
         }
         .menu-lunchOffer {
