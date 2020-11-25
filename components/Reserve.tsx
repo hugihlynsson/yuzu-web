@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { RichText } from 'prismic-reactjs'
 
-// import Button from './Button'
+import Button from './Button'
 import { colors } from '../constants'
 
 declare const fbq: any
@@ -13,10 +13,10 @@ interface Props {
 
 const Reserve: FunctionComponent<Props> = ({ title, body }) => (
   <section className="reserve">
-    {/* <div className="orderButtonBox">
+    <div className="orderButtonBox">
       <Button href="https://panta.yuzu.is">Panta take-away</Button>
       <p className="orderButtonDescription">Þú pantar og sækir</p>
-    </div> */}
+    </div>
 
     <h1 className="reserve-title">{title}</h1>
 

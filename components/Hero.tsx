@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { RichText } from 'prismic-reactjs'
 
-// import Button from './Button'
+import Button from './Button'
 import { colors } from '../constants'
 import { PrismicImage } from '../types'
 
@@ -74,7 +74,7 @@ const Hero: FunctionComponent<Props> = ({
     </header>
 
     <div className="orderButtonBox">
-      {/* <Button href="https://panta.yuzu.is">Panta take-away</Button> */}
+      <Button href="https://panta.yuzu.is">Panta take-away</Button>
       <p className="orderButtonDescription">
         <RichText
           render={ordertext}
@@ -193,6 +193,7 @@ const Hero: FunctionComponent<Props> = ({
       .orderButtonBox {
         align-self: center;
         margin-top: 25px;
+        text-align: center;
       }
       .orderButtonDescription {
         margin-top: 4px;
