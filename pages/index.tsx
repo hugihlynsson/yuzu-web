@@ -30,6 +30,7 @@ const Index: NextPage<Props> = ({ homeData }) => (
       phone={homeData.phone}
       headerImage={homeData.header_image}
       openingHours={homeData.opening_hours}
+      ordertext={homeData.reservation_body}
     />
 
     <section className="about">

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { RichText } from 'prismic-reactjs'
 
-import Button from './Button'
+// import Button from './Button'
 import { colors } from '../constants'
 
 declare const fbq: any

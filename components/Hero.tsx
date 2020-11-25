@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from 'react'
+import { RichText } from 'prismic-reactjs'
 
-import Button from './Button'
+// import Button from './Button'
 import { colors } from '../constants'
 import { PrismicImage } from '../types'
+
+declare const fbq: any
 
 interface Props {
   instagramHandle?: string
@@ -14,6 +17,7 @@ interface Props {
     Share: PrismicImage
   }
   openingHours?: Array<{ day: string }>
+  ordertext: unknown
 }
 
 const Hero: FunctionComponent<Props> = ({
@@ -21,6 +25,7 @@ const Hero: FunctionComponent<Props> = ({
   phone,
   headerImage,
   openingHours,
+  ordertext,
 }) => (
   <div className="hero">
     <div className="top">
@@ -68,10 +73,37 @@ const Hero: FunctionComponent<Props> = ({
       </h1>
     </header>
 
-    {/* <div className="orderButtonBox">
-      <Button href="https://panta.yuzu.is">Panta take-away</Button>
-      <p className="orderButtonDescription">Þú pantar og sækir</p>
-    </div> */}
+    <div className="orderButtonBox">
+      {/* <Button href="https://panta.yuzu.is">Panta take-away</Button> */}
+      <p className="orderButtonDescription">
+        <RichText
+          render={ordertext}
+          serializeHyperlink={(
+            type: any,
+            element: { data: { url: string; target: string } },
+            content: any,
+            children: React.ReactNode,
+            index: number
+          ) => (
+            <a
+              key={index}
+              href={element.data.url}
+              target={element.data.target}
+              rel={
+                element.data.target === '_blank' ? 'noopener noreferrer' : ''
+              }
+              onClick={() => {
+                if (element.data.url.includes('yuzu.dinesuperb.com') && fbq) {
+                  fbq('track', 'Lead')
+                }
+              }}
+            >
+              {children}
+            </a>
+          )}
+        />
+      </p>
+    </div>
 
     {openingHours && (
       <p className="hero-openingHours">
@@ -168,6 +200,10 @@ const Hero: FunctionComponent<Props> = ({
         font-size: 12px;
         text-transform: lowercase;
         text-align: center;
+      }
+
+      .orderButtonDescription a {
+        color: white;
       }
 
       .hero-openingHours {
