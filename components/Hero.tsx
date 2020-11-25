@@ -68,10 +68,10 @@ const Hero: FunctionComponent<Props> = ({
       </h1>
     </header>
 
-    <div className="orderButtonBox">
+    {/* <div className="orderButtonBox">
       <Button href="https://panta.yuzu.is">Panta take-away</Button>
       <p className="orderButtonDescription">Þú pantar og sækir</p>
-    </div>
+    </div> */}
 
     {openingHours && (
       <p className="hero-openingHours">
