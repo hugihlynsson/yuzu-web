@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 
 import Button from './Button'
 import { colors } from '../constants'
@@ -16,7 +16,7 @@ interface Props {
   openingHours?: Array<{ day: string }>
 }
 
-const Hero: StatelessComponent<Props> = ({
+const Hero: FunctionComponent<Props> = ({
   instagramHandle,
   phone,
   headerImage,

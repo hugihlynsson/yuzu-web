@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 
 import { PrismicImage } from '../types'
 
@@ -14,7 +14,7 @@ interface Props {
   }
 }
 
-const Gallery: StatelessComponent<Props> = ({ topLeft, right, bottom }) => (
+const Gallery: FunctionComponent<Props> = ({ topLeft, right, bottom }) => (
   <section className="gallery">
     <img className="kanjiYuzu" src="/kanji-yuzu.svg" alt="Yuzu á Japönsku" />
 

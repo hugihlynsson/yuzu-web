@@ -1,11 +1,11 @@
-import { StatelessComponent } from 'react'
+import { FunctionComponent } from 'react'
 import { colors } from '../constants'
 
 interface Props {
   href: string
 }
 
-const Button: StatelessComponent<Props> = ({ href, children }) => (
+const Button: FunctionComponent<Props> = ({ href, children }) => (
   <a href={href}>
     {children}
     <style jsx>{`

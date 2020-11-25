@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 
 import { Diet, DrinksSection, WinesSection, PrismicImage } from '../types'
 import { colors } from '../constants'
@@ -43,7 +43,7 @@ interface Props {
   lunchOffer?: PrismicImage
 }
 
-const Menu: StatelessComponent<Props> = ({
+const Menu: FunctionComponent<Props> = ({
   title,
   burgerTitle,
   burgers,

@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 import { RichText } from 'prismic-reactjs'
 
 import Button from './Button'
@@ -11,7 +11,7 @@ interface Props {
   body: unknown
 }
 
-const Reserve: StatelessComponent<Props> = ({ title, body }) => (
+const Reserve: FunctionComponent<Props> = ({ title, body }) => (
   <section className="reserve">
     <div className="orderButtonBox">
       <Button href="https://panta.yuzu.is">Panta take-away</Button>
