@@ -74,7 +74,9 @@ const Hero: FunctionComponent<Props> = ({
     </header>
 
     <div className="orderButtonBox">
-      <Button href="https://panta.yuzu.is">Panta take-away</Button>
+      <Button onClick={() => fbq('track', 'Lead')} href="https://panta.yuzu.is">
+        Panta take-away
+      </Button>
       <p className="orderButtonDescription">
         <RichText
           render={ordertext}

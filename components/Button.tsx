@@ -3,10 +3,11 @@ import { colors } from '../constants'
 
 interface Props {
   href: string
+  onClick?: () => void
 }
 
-const Button: FunctionComponent<Props> = ({ href, children }) => (
-  <a href={href}>
+const Button: FunctionComponent<Props> = ({ href, children, onClick }) => (
+  <a onClick={onClick} href={href}>
     {children}
     <style jsx>{`
       a {
