@@ -11,6 +11,10 @@ export default class CustomApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1.0, viewport-fit=cover"
           />
+          <meta 
+            name="facebook-domain-verification" 
+            content="x68mz16ffmlpz2220hmq19dxvpz1jb" 
+          />
           <link rel="icon" href="/icon.png" />
           <link rel="apple-touch-icon" href="/icon-512w.png" />
           <script
